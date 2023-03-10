@@ -55,6 +55,13 @@ console.log(`The total population of all countries is: ${totalPopulation}`);
        var result= JSON.parse(request.response);
        console.log(result);
 
-    let usdCountries = result.filter(country =>country.currencies === "USD");
-    console.log(`The following countries use US dollars as their currency: ${usdCountries.map(country => country.name)}`);
+    let usdCountries = result.filter((x)=>{
+        for(let i in x.currencies){
+            if(x.currencies[i].code === "USD"){
+return true;
+            }
+   
+        }});
+        
+   console.log(usdCountries);
    }
